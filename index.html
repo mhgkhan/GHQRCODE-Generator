@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr code Generator </title>
+    <link rel="stylesheet" href="./assets/style.css">
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="app">
+            <div class="headings">
+                <h1>GH-QRCODE GENERATOR </h1>
+            <p>Enter your text or link in the following input to create your awesome QR Code</p>
+          
+            </div>
+              <div class="container-2">
+
+                <div class="userInputs">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam eaque nostrum quod</p>
+                    <input type="text" class="input" placeholder="Enter your message" id="input">
+                    <div class="colors">
+                        <div class="fgc">
+                            <span>Foreground color </span>
+                            <input type="color" id="fgc">
+                        </div>
+                        <div class="bgc">
+                            <span>Background color </span>
+                            <input type="color" id="bgc">
+                        </div>
+                    </div>
+                    <button disabled id="button">Generate </button>
+                </div>
+
+
+                <div class="Qrarea">
+                    <a href="" id="download" download="download">
+                        <div id="qrcode" style="width: 200px; height:200px; margin:1rem 2rem;"></div>
+                    </a>
+                    <div class="buttons">
+                        <button disabled id="downloadbtn">Download</button>
+                        <button disabled id="clear">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+
+        const submitBtn = document.getElementById("button"),
+            downloadBtn = document.getElementById("downloadbtn"),
+            clearBtn = document.getElementById("clear"),
+            input = document.getElementById("input"),
+            fgc = document.getElementById("fgc"),
+            bgc = document.getElementById("bgc");
+
+            
+
+
+
+        input.addEventListener("keypress", e => {
+            if (e.target.value.length > 1) submitBtn.disabled = false
+            else return;
+        })
+
+
+        document.getElementById("button").addEventListener("click", e => {
+
+            // console.log("values ", fgc.value, bgc.value)
+
+            document.getElementById("qrcode").innerHTML = ""
+            var qrcode = new QRCode("qrcode", {
+                text: input.value,
+                colorDark: fgc.value != "#000000"? fgc.value : "black",
+                colorLight: bgc.value != "#000000"?  bgc.value : "white",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+
+
+            setTimeout(() => {
+                // console.log(document.querySelector("#qrcode img").hasAttribute("src"))
+                document.getElementById("download").setAttribute("href", document.querySelector("#qrcode img").src)
+            }, 1000)
+
+
+            downloadBtn.disabled = false;
+            clearBtn.disabled = false
+
+        })
+
+        document.getElementById("clear").addEventListener("click", e => {
+            document.getElementById("qrcode").innerHTML = "please enter text & GET"
+            submitBtn.disabled = true;
+            downloadBtn.disabled = true;
+            clearBtn.disabled = true;
+        })
+        document.getElementById("downloadbtn").addEventListener("click", e => {
+            document.getElementById("download").click();
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
