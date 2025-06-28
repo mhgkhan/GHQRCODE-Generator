@@ -1,262 +1,197 @@
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Ubuntu", sans-serif !important;
-    font-weight: 500;
-    font-style: normal;
-}
-
-p,a,span, button, label{
-    font-family: "Titillium Web", serif !important;
-    font-weight: 200;
-    font-style: normal;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    transition: 500ms;
+    transition: all 0.3s ease;
 }
-
 
 body {
-    /* background: linear-gradient(200deg, #2a4242, #040427); */
-    background: linear-gradient(180deg, #000000, #0a0a52);
-    height: 100vh;
-}
-
-
-body .container {
-    max-width: 80%;
-    margin: auto !important;
-    display: block;
-    height: 100%;
-}
-
-
-body .container .app {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to right, #4a00e0, #8e2de2);
+    min-height: 100vh;
+    color: #fff;
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column;
-    gap: 30px;
+    align-items: center;
+    padding: 2rem;
+}
+
+.container {
+    background-color: #fff;
+    color: #333;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
     width: 100%;
-    height: 100%;
+}
+
+.app h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #4a00e0;
 }
 
 .container-2 {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-around;
-    width: 100%;
-    gap: 4rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.app h1 {
-    color: white;
-    font-weight: bolder;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 4rem;
+.userInputs {
+    flex: 1;
+    min-width: 280px;
 }
 
-.app p {
-    color: #c0bdbd;
-    font-size: 1.1rem;
-    margin: 10px 5px;
-    text-align: center;
-}
-
-.container-2 p {
+.userInputs p {
+    margin-bottom: 1rem;
     font-size: 1rem;
-    width: 400px;
-    color: gainsboro;
-    text-align: left;
+    color: #555;
 }
 
-.container-2 input {
+input[type="text"] {
     width: 100%;
-    padding: 10px;
-    font-size: 1.2rem;
-    margin: 1rem auto;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     outline: none;
-    border-radius: 5px;
-    border: 1px solid blueviolet;
-    color: blueviolet;
-    font-weight: bold;
-    font-style: italic;
+    margin-bottom: 1rem;
 }
 
-.container-2 input:focus {
-    box-shadow: 0px 0px 13px #a348f8e0;
-}
-
-
-.userInputs button {
-    margin: 1rem 0px;
+input[type="text"]:focus {
+    border-color: #8e2de2;
+    box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.2);
 }
 
 .colors {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 1rem;
-
-    & span {
-        color: white;
-    }
-
-    & input {
-        width: 50px;
-        height: 50px;
-        display: block;
-        border-radius: 0px;
-        padding: 3px;
-        cursor: pointer;
-        border-radius: 10px;
-    }
-
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
+.colors span {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
 
-
+.colors input[type="color"] {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
 button {
-    width: auto;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    margin: 1rem auto;
-    display: block;
-    border-radius: 5px;
-    box-shadow: 0px 0px 20px darkslateblue;
+    background-color: #4a00e0;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: 500ms;
-    background: white;
-    border: 1px solid blueviolet;
-    outline: none;
-    font-weight: bold;
-
-    &:hover {
-        background: blueviolet;
-        color: white;
-    }
-
-    &:active {
-        scale: 0.9;
-    }
-
-    &:disabled {
-        background: gray;
-        color: darkslategray;
-    }
+    width: 100%;
+    margin-top: 1rem;
 }
 
+button:hover:not(:disabled) {
+    background-color: #5e17eb;
+}
 
+button:disabled {
+    background-color: #ccc;
+    color: #777;
+    cursor: not-allowed;
+}
 
 .Qrarea {
-    width: auto;
+    flex: 1;
+    min-width: 280px;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-
-    & #qrcode {
-        width: 100%;
-        height: 100%;
-        border: 3px dotted darkslateblue;
-
-        & img {
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-
+    align-items: center;
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+#qrcode {
+    width: 200px;
+    height: 200px;
+    border: 2px dashed #ccc;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#qrcode img {
+    max-width: 100%;
+    max-height: 100%;
+}
 
 .buttons {
     display: flex;
-    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    width: 100%;
+}
+
+.buttons button {
+    flex: 1;
 }
 
 
-
-
-@media screen and (max-width:1000px) {
-    html {
-        font-size: 80%
-    }
-
+@media  screen and (max-width: 600px) {
     .container {
-        width: 99%;
+        padding: 1rem;
     }
-}
 
-@media screen and (max-width:850px) {
-    body {
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        padding: 1rem 0px;
+    .app h1 {
+        font-size: 2rem;
     }
 
     .container-2 {
-        flex-direction: column-reverse !important;
-        width: 100%;
+        flex-direction: column;
         align-items: center;
     }
 
-    .container-2 p {
-        width: auto;
+    .userInputs, .Qrarea {
+        width: 100%;
+        margin-bottom: 1rem;
     }
 
-    .Qrarea {
-        width: 300px;
-        height: 300px;
+    .buttons {
+        flex-direction: column;
+        gap: 0.5rem;
     }
+    
 }
 
-@media screen and (max-width:600px) {
-    .container h1 {
-        font-size: 3rem;
-        text-align: center;
-    }
-
-    .app {
-        gap: 1.5rem;
-    }
-
-    .container-2 {
-        gap: 1rem;
-    }
-
-    .Qrarea {
+@media screen and (max-width:400px) {
+    button{
         width: 100% !important;
-
-        /* height: 200px !important; */
+        display: block;
     }
+    .container{
+        width: 99% !important;
 
-    .Qrarea #qrcode {
-        width: 200px;
-        height: 200px;
     }
-
-    .Qrarea #qrcode img {
-        width: 100%;
-        height: 100%;
+    .userInputs{
+        min-width: 100px !important;
+    }
+    body{
+        padding: 5px !important;
     }
 }
